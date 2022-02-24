@@ -1,0 +1,31 @@
+{
+  "name": "nodejs-microservices",
+  "version": "1.0.0",
+  "description": "Microservices node js example",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon api/index.js",
+    "db": "nodemon mysql/index.js",
+    "post": "nodemon post/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "microservices",
+    "api"
+  ],
+  "author": "Emanuel de la Cruz",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "nanoid": "^3.3.1",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
