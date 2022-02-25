@@ -1,17 +1,29 @@
-const bodyParser = require("body-parser");
+
 const nanoid = require("nanoid");
 const auth = require("../auth");
 const TABLA = "user";
 
-module.exports = (injectedStore) => {
+module.exports = (injectedStore, injectedCache) => {
+  let cache = injectedCache;
   let store = injectedStore;
 
   if (!store) {
     store = require("../../../store/dummy");
   }
+  if (!cache) {
+    cache = require("../../../store/dummy");
+  }
 
-  const list = () => {
-    return store.list(TABLA);
+  const list = async () => {
+    let users = await cache.list(TABLA);
+    if(!users){
+      console.log('No estaba en cache')
+      users = await store.list(TABLA)
+      cache.upsert(TABLA, users)
+    }else {
+      console.log('Usuarios en cache')
+    }
+    return users
   };
 
   const get = (id) => {

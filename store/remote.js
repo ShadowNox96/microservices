@@ -12,7 +12,6 @@ const createRemoteDB = (host, port) => {
   };
 
   const upsert = (table, data) => {
-    console.log('Upsert llegando ', table, data)
     if(data.flag){
       return req("POST", table, data);
     }else {
@@ -47,7 +46,6 @@ const createRemoteDB = (host, port) => {
     return new Promise ((res, rej) => {
       
       requests.then(result => {
-        console.log(result)
         // const resp = JSON.parse(result)
         return res(result.data.body)
       })

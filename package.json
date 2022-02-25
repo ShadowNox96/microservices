@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon api/index.js",
     "db": "nodemon mysql/index.js",
-    "post": "nodemon post/index.js"
+    "post": "nodemon post/index.js",
+    "cache": "nodemon cache/index-cache.js"
   },
   "keywords": [
     "nodejs",
@@ -23,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "nanoid": "^3.3.1",
+    "redis": "^4.0.4",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
